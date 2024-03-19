@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng</title>
+</head>
+<body>
+    <h1>Đơn hàng</h1>
+
+    <div id="table">
+        <div id="sp001">
+           Sản phẩm 1
+           <button name="ten1" id="id1">Mã sản phẩm: 1</button>
+           <input type="text" name="input1" id="sp1" placeholder="tên sản phẩm 1">
+           <button name="sl1" id="sl1">Số lượng còn: 10</button>
+           <button onclick="addRow()">+</button>
+           <button>-</button>
+        </div>
+    </div>
+
+    <script>
+        var index = 2; // Đặt index ở đây để nó tự tăng khi nhấn nút
+
+        function addRow(){
+            const para = document.getElementById("sp002");
+            var row = document.createElement("div");
+            row.innerHTML = `<div id="sp${index}">
+                                Sản phẩm ${index}
+                                <button name="ten${index}" id="id1">Mã sản phẩm: ${index}</button>
+                                <input type="text" name="input${index}" id="sp${index}" placeholder="tên sản phẩm ${index}">
+                                <button name="sl${index}" id="sl${index}">Số lượng còn: 10</button>
+                                <button onclick="addRow()">+</button>
+                                <button>-</button>
+                            </div>`;
+            var parentElement = document.getElementById("table");
+            parentElement.appendChild(row);
+            index++; // Tăng index để cho lần nhấn tiếp theo
+        }
+    </script>
+</body>
+</html>
